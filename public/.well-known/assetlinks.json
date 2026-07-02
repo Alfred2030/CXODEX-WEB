@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.cxodex.app",
+      "sha256_cert_fingerprints": [
+        "9F:9C:06:DA:EC:03:9F:55:6E:83:B7:EF:19:69:99:D1:29:7A:0C:27:C8:B2:A1:41:78:8C:2C:D2:23:7E:CB:6D"
+      ]
+    }
+  }
+]

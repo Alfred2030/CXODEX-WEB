@@ -1,0 +1,111 @@
+﻿@import "tailwindcss";
+
+:root {
+  /* Warm paper + deep ink + a single restrained gold accent (from the CXODEX mark). */
+  --background: #fbfaf6;
+  --foreground: #1b1812;
+  --ink: #15130f;
+  --ink-soft: #2a2620;
+  --gold: #b0832f;
+  --gold-soft: #c79a45;
+  --muted: #6f6a5f;
+  --line: #e7e1d4;
+  --accent: #b0832f;
+}
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "HarmonyOS Sans SC",
+    "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --font-serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", STSong, Georgia,
+    "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--gold); color: #ffffff; }
+a { text-decoration: none; }
+summary::-webkit-details-marker { display: none; }
+
+/* Serif Latin accents — numerals, eyebrows, wordmark — carry the editorial gravitas. */
+.serif { font-family: var(--font-serif); }
+.num { font-family: Georgia, "Times New Roman", serif; font-feature-settings: "lnum" 1; }
+
+/* Shared button geometry. */
+.button-dark,
+.button-light,
+.button-gold,
+.button-ghost,
+.button-diagnosis {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+/* Ink — the default/secondary action. */
+.button-dark { border-color: var(--ink); background: var(--ink); color: #fff; }
+.button-dark:hover { border-color: var(--gold); background: var(--gold); color: #fff; }
+/* Quiet ghost — outline only (for light backgrounds). */
+.button-light { border-color: var(--line); background: transparent; color: var(--foreground); }
+.button-light:hover { border-color: var(--gold); color: var(--gold); }
+/* Ghost for DARK backgrounds — white outline + white text (avoids black-on-black). */
+.button-ghost { border-color: rgba(255, 255, 255, 0.45); background: transparent; color: #fff; }
+.button-ghost:hover { border-color: #fff; background: #fff; color: var(--ink); }
+/* Gold — the single primary accent. Flat, no gradient. */
+.button-gold,
+.button-diagnosis { border-color: var(--gold); background: var(--gold); color: #fff; }
+.button-gold:hover,
+.button-diagnosis:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+.button-diagnosis { min-height: 3rem; padding: 0.85rem 1.5rem; font-size: 1rem; font-weight: 700; }
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.section { border-bottom: 1px solid var(--line); background: var(--background); }
+.section-inner { margin-inline: auto; max-width: 80rem; padding: 2.75rem 1.25rem; }
+@media (min-width: 640px) { .section-inner { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .section-inner { padding-block: 4.25rem; } }
+.hero-photo {
+  background-image: linear-gradient(100deg, rgba(15, 13, 10, 0.94) 0%, rgba(18, 16, 12, 0.80) 45%, rgba(21, 19, 15, 0.62) 100%), url("/hero-bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+h1, h2 { letter-spacing: -0.01em; }
+@keyframes scroll-clients {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.marquee-clients { animation: scroll-clients 16s linear infinite; }
+.marquee-clients:hover { animation-play-state: paused; }
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+/* 品牌滚动条在所有设备上保持滚动（iOS 的"减弱动态效果"开关不再停掉它） */
+.marquee-x { width: max-content; animation: scroll-x 32s linear infinite; will-change: transform; }
+.marquee-x:hover { animation-play-state: paused; }
+.metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1024px) { .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
