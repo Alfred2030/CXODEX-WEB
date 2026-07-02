@@ -81,12 +81,12 @@ export const tools = {
   ],
   items: [
     { name: "企业诊断数字人", desc: "几分钟看清经营健康度，定位最该先改的环节。", href: "https://diagnosis.cxodex.com", tag: "免费" },
-    { name: "财务分析数字人", desc: "上传报表，自动出具盈利、现金与结构化分析。", href: "https://finance.cxodex.com", tag: "" },
-    { name: "OEE 线上计算", desc: "设备综合效率在线测算，定位产能损失来源。", href: "https://oee.cxodex.com", tag: "" },
+    { name: "快速抓订单数字人", desc: "竞品信号法开拓国际市场：AI 生成目标客户库、英文冷邮件序列与 30 天跟进看板，短周期抓订单。", href: "https://bd.cxodex.com", tag: "新" },
     { name: "排产数字人", desc: "AI 优化排产，把交期与产能约束算到最优。", href: "https://scheduling.cxodex.com", tag: "" },
+    { name: "财务分析数字人", desc: "上传报表，自动出具盈利、现金与结构化分析。", href: "https://finance.cxodex.com", tag: "免费" },
+    { name: "OEE 线上计算", desc: "设备综合效率在线测算，定位产能损失来源。", href: "https://oee.cxodex.com", tag: "免费" },
     { name: "面试数字人", desc: "AI 数字面试官，在线自动筛查评估候选人，把老板解放出来。", href: "https://interview.cxodex.com", tag: "" },
-    { name: "合同在线审查数字人", desc: "上传或粘贴合同，AI 按四层审查法逐条挑风险、给修订建议。", href: "https://legal.cxodex.com", tag: "新" },
-    { name: "快速抓订单数字人", desc: "竞品信号法开拓国际市场：AI 生成目标客户库、英文冷邮件序列与 30 天跟进看板，短周期抓订单。", href: "https://bd.cxodex.com", tag: "新" }
+    { name: "合同在线审查数字人", desc: "上传或粘贴合同，AI 按四层审查法逐条挑风险、给修订建议。", href: "https://legal.cxodex.com", tag: "免费" }
   ]
 };
 
