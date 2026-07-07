@@ -90,7 +90,7 @@ export const enFounder = {
   name: "Wang Shuguang",
   role: "Founder of CXODEX · CEO Coach",
   bio: "Ten years as a GE General Manager and Six Sigma Master Black Belt; ten years as CEO of Goodbaby Group; 30 years as a top operating leader across 14 companies of every ownership type, serving 16 industries in depth. Every method and tool on this site comes from that frontline experience.",
-  quote: "Mr. Wang is the wall behind Funik at the edge of the cliff.",
+  quote: "Mr. Wang is the wall at the edge of my cliff.",
   quoteBy: "Chairman Li, Funik (2025 net profit +140%, OEE +20%)",
   aboutLabel: "Full background →"
 };
@@ -227,7 +227,7 @@ export const enCases = {
         "We deployed an AI auto-scheduling system and an international-market development workbench: scheduling, delivery commitment, customer progress lookup and international customer development — fully digitalized and integrated two-way with the shop-floor MES, with data synced in real time.",
       result:
         "2025 net profit up 140%; overall equipment effectiveness (OEE) up 20%. Supporting system: 4,300+ in-process orders and 114 machines scheduled in one click, delivery dates quoted online in seconds; AI generated a 100+ overseas distributor list and cold-email sequences in 18 languages.",
-      quote: "Mr. Wang is the wall behind Funik at the edge of the cliff.",
+      quote: "Mr. Wang is the wall at the edge of my cliff.",
       quoteBy: "Chairman Li, Funik",
       named: true
     },

@@ -30,16 +30,15 @@ export default function HomePage() {
         @keyframes cxbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
         .cx-chip{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);border-radius:8px;padding:10px 14px;font-size:13px;color:#e8eaee;animation:cxbob 5s ease-in-out infinite}
         .cx-chip small{display:block;color:#9fe8f2;font-size:11px;letter-spacing:1px}
-        .cx-heroimg{position:absolute;inset:0;background:url(/img/wang-standing.jpg) right 8% top 12%/auto 118% no-repeat;
-          filter:saturate(.85) brightness(.88) contrast(1.04);
-          -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40%);mask-image:linear-gradient(90deg,transparent 0,#000 40%)}
+        .cx-glow{position:absolute;border-radius:50%;filter:blur(70px)}
         @media (max-width:960px){.cx-heroart{display:none}}
       `}</style>
 
       {/* ===== Hero：CEO 陪跑（德勤式深底 + 创始人实照 + 金色光带） ===== */}
       <section className="relative overflow-hidden text-white" style={{ background: "radial-gradient(1200px 500px at 78% 30%, #232a3d 0%, #15171c 55%)" }}>
         <div className="cx-heroart absolute inset-y-0 right-0 w-[58%] min-w-[520px]" aria-hidden>
-          <div className="cx-heroimg" />
+          <div className="cx-glow" style={{ width: 360, height: 360, right: "20%", top: "10%", background: "#d4a63f", opacity: 0.16 }} />
+          <div className="cx-glow" style={{ width: 300, height: 300, right: "4%", bottom: "-6%", background: "#38c8dd", opacity: 0.14 }} />
           <Swoosh id="swh" className="absolute inset-0 h-full w-full" />
           <div className="cx-chip" style={{ right: "36%", top: "20%" }}><small>ADVISORY</small>CEO 陪跑</div>
           <div className="cx-chip" style={{ right: "6%", top: "46%", animationDelay: "1.2s" }}><small>EXPORT</small>外贸抢单神器</div>
@@ -87,10 +86,9 @@ export default function HomePage() {
       {/* ===== 关于王曙光（CEO 陪跑本尊） ===== */}
       <section className="section" id="about-founder">
         <div className="section-inner grid gap-11 lg:grid-cols-[340px_1fr]">
-          <div className="relative overflow-hidden rounded-xl p-6 text-center text-white" style={{ background: "linear-gradient(160deg,#1b1f2a,#232c42)" }}>
-            <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(240px 130px at 80% 0%, rgba(212,166,63,.28), transparent 70%)" }} />
-            <img src="/img/wang-portrait.jpg" alt="王曙光" className="relative block w-full rounded-lg" style={{ boxShadow: "0 0 0 2px rgba(212,166,63,.55), 0 18px 40px rgba(0,0,0,.45)" }} />
-            <p className="relative mt-3 text-xs text-neutral-400">CXODEX 创始人 · 王曙光</p>
+          <div className="text-center">
+            <img src="/img/wang-portrait.jpg" alt="王曙光" className="block w-full rounded-xl" style={{ boxShadow: "0 0 0 1px rgba(212,166,63,.5), 0 14px 34px rgba(0,0,0,.14)" }} />
+            <p className="mt-3 text-xs text-neutral-500">CXODEX 创始人 · 王曙光</p>
           </div>
           <div>
             <h2 className="serif text-3xl font-semibold text-neutral-950 sm:text-4xl">王曙光</h2>
@@ -108,7 +106,7 @@ export default function HomePage() {
               ))}
             </div>
             <figure className="mt-6 border-l-4 border-[var(--gold)] bg-white p-5 shadow-sm">
-              <blockquote className="serif text-lg font-semibold leading-8 text-neutral-950">“王曙光老师是富耐克悬崖背后的那一堵墙。”</blockquote>
+              <blockquote className="serif text-lg font-semibold leading-8 text-neutral-950">“王老师是我悬崖边的那道墙。”</blockquote>
               <figcaption className="mt-1.5 text-sm text-neutral-500">—— 富耐克 李董事长（2025 年净利润 +140%，OEE 提升 20%）</figcaption>
             </figure>
             <div className="mt-6 grid max-w-2xl grid-cols-2 gap-3.5">
