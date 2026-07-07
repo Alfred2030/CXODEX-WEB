@@ -1,0 +1,160 @@
+import { Hero } from "../components/Hero";
+import { InstallButton } from "../components/InstallButton";
+import { LiveChannel } from "../components/LiveChannel";
+import { home, strengths, tools, diagnoseUrl } from "../content/site";
+
+export default function HomePage() {
+  return (
+    <>
+      <Hero
+        eyebrow={home.eyebrow}
+        title={home.title}
+        subtitle={home.subtitle}
+        primaryHref="/contact"
+        primaryLabel={home.secondaryCta}
+        secondaryHref={diagnoseUrl}
+        secondaryLabel={home.primaryCta}
+      />
+
+      {/* 创始人信任区 —— 冷访客先认识人，再谈生意 */}
+      <section className="border-b border-neutral-900 text-white" style={{ background: "var(--ink)" }}>
+        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-5 py-10 sm:flex-row sm:items-center sm:gap-10 sm:px-8 lg:py-12">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/wang-shuguang-avatar.jpg"
+            alt="王曙光"
+            className="h-28 w-28 shrink-0 rounded-full border-2 border-[var(--gold)] object-cover sm:h-32 sm:w-32"
+          />
+          <div className="min-w-0">
+            <p className="text-xl font-bold sm:text-2xl">
+              王曙光 <span className="ml-2 text-sm font-medium text-amber-300/90">CXODEX 创始人 · CEO 陪跑教练</span>
+            </p>
+            <p className="mt-3 max-w-3xl text-[0.95rem] leading-7 text-neutral-300">
+              GE 十年总经理、六西格玛黑带大师；好孩子集团十年 CEO；30 年在 14 家不同所有制企业担任一号位，
+              深度服务过 16 个行业。你在这个网站上看到的每一个方法和工具，都来自这些一线经历。
+            </p>
+            <figure className="mt-5 border-l-2 border-[var(--gold)] pl-4">
+              <blockquote className="serif text-lg leading-8 text-white sm:text-xl">“王曙光老师是富耐克悬崖背后的那一堵墙。”</blockquote>
+              <figcaption className="mt-2 text-sm text-amber-300/90">—— 富耐克 李董事长（2025 年净利润 +140%，OEE 提升 20%）</figcaption>
+            </figure>
+            <a href="/about" className="mt-5 inline-block text-sm font-semibold text-[var(--gold)] hover:opacity-80" data-umami-event="home-about-founder">
+              完整履历与经历 →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 直播窗口 */}
+      <LiveChannel />
+
+      {/* CXODEX 自动化工具列表 —— 克制的工具目录，浅色描边卡片，金色只做点缀 */}
+      <section className="section">
+        <div className="section-inner !pt-14 lg:!pt-16">
+          <div className="mb-3 flex items-end justify-between gap-4">
+            <p className="!mb-0 font-sans text-xl font-bold tracking-tight text-neutral-950 sm:text-2xl">CXODEX 自动化工具列表</p>
+            <a href={tools.portalUrl} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm font-semibold text-[var(--gold)] hover:opacity-80">应用中心 →</a>
+          </div>
+          <p className="mb-8 max-w-3xl text-sm leading-6 text-neutral-500">把陪跑中反复用到的经营动作，沉淀成可自助使用的在线工具——随时可用，多数免费。</p>
+          <div className="grid gap-px overflow-hidden rounded-lg border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+            {tools.items.map((tool, i) => (
+              <a
+                key={tool.name}
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col bg-white p-5 transition hover:bg-neutral-50"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="num text-lg font-semibold leading-none text-[var(--gold)]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex-1 text-base font-semibold text-[var(--gold)]">{tool.name}</span>
+                  {tool.tag ? <span className="shrink-0 border border-neutral-300 px-1.5 py-0.5 text-[0.7rem] font-semibold text-neutral-500 group-hover:border-[var(--gold)] group-hover:text-[var(--gold)]">{tool.tag}</span> : null}
+                </div>
+                <p className="mt-2.5 flex-1 text-sm leading-6 text-neutral-600">{tool.desc}</p>
+                <div className="mt-3 flex items-center justify-between">
+                  {(tool as { demo?: boolean }).demo ? (
+                    <span className="text-xs font-semibold text-neutral-400 group-hover:text-[var(--gold)]">▶ 登录页看演示</span>
+                  ) : <span />}
+                  <span aria-hidden className="text-sm font-semibold text-[var(--gold)] opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100">进入 →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
+            <InstallButton />
+            <span className="text-sm leading-6 text-neutral-500">把 CXODEX 装到手机主屏，独立图标、全屏、可离线。</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 三大重点 —— 版面主角 */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="mb-12 max-w-3xl">
+            <p className="eyebrow">{strengths.eyebrow}</p>
+            <h2 className="serif text-3xl font-semibold leading-tight tracking-tight text-neutral-950 sm:text-5xl">{strengths.title}</h2>
+            <p className="mt-5 text-lg leading-8 text-neutral-600">{strengths.subtitle}</p>
+          </div>
+          <div className="grid gap-px bg-neutral-200 lg:grid-cols-3">
+            {strengths.items.map((s) => (
+              <div key={s.no} className="flex flex-col bg-white p-8 lg:p-10">
+                <div className="num text-4xl font-semibold leading-none text-[var(--gold)]">{s.no}</div>
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gold)]">{s.tag}</p>
+                <h3 className="serif mt-3 text-2xl font-semibold leading-snug text-neutral-950">{s.title}</h3>
+                <p className="mt-4 flex-1 text-[0.95rem] leading-8 text-neutral-600">{s.body}</p>
+                <a
+                  href={s.toolHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--gold)] hover:opacity-80"
+                >
+                  配套工具：{s.toolName}
+                  <span aria-hidden>→</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 精简信任条 */}
+      <section className="section">
+        <div className="section-inner !py-10 lg:!py-12">
+          <div className="metric-grid border-y border-[var(--line)]">
+            {home.proof.map((item) => (
+              <div key={item.label} className="border-[var(--line)] py-7 pr-5 lg:border-r">
+                <strong className="flex items-baseline gap-0.5 text-neutral-950">
+                  <span className="num text-5xl font-semibold leading-none text-[var(--gold)]">{item.value}</span>
+                  <span className="text-lg font-medium text-neutral-700">{item.unit}</span>
+                </strong>
+                <span className="mt-3 block text-sm leading-6 text-neutral-600">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 服务过的企业 —— 突出滚动 */}
+      <section className="text-white" style={{ background: "var(--ink)" }}>
+        <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+          <p className="eyebrow !text-amber-300/90">服务过的企业</p>
+          <h2 className="serif max-w-3xl text-2xl font-semibold leading-snug text-white sm:text-4xl">
+            从超硬材料到热力、光学、智能两轮与汽车塑件
+          </h2>
+          <div
+            className="relative mt-9 overflow-hidden"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)"
+            }}
+          >
+            <ul className="marquee-x flex items-center gap-12 whitespace-nowrap">
+              {[...tools.clients, ...tools.clients].map((c, i) => (
+                <li key={i} className="text-lg font-semibold text-amber-300/90 sm:text-xl">{c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
