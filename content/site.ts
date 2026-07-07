@@ -52,7 +52,7 @@ export const strengths = {
       tag: "增长 · 产品战略与国际订单",
       title: "短期拿下大量订单",
       body: "从产品结构与国际业务切入，用被反复验证过的打法，在短周期内为企业带来可观的新订单。",
-      toolName: "快速抓单数字人",
+      toolName: "外贸抢单神器",
       toolHref: "https://bd.cxodex.com"
     },
     {
@@ -60,7 +60,7 @@ export const strengths = {
       tag: "变革 · 组织人事",
       title: "让组织真正动起来",
       body: "人事与流程重组、跨部门协同、关键岗位到位——把战略落到一个能执行的组织上。",
-      toolName: "面试数字人工具",
+      toolName: "AI快速面试",
       toolHref: "https://interview.cxodex.com"
     }
   ]
@@ -80,13 +80,14 @@ export const tools = {
     "鸿泰锆业股份有限公司（四川）"
   ],
   items: [
-    { name: "企业诊断数字人", desc: "几分钟看清经营健康度，定位最该先改的环节。", href: "https://diagnosis.cxodex.com", tag: "免费" },
-    { name: "快速抓订单数字人", desc: "竞品信号法开拓国际市场：AI 生成目标客户库、英文冷邮件序列与 30 天跟进看板，短周期抓订单。", href: "https://bd.cxodex.com", tag: "新" },
-    { name: "排产数字人", desc: "AI 优化排产，把交期与产能约束算到最优。", href: "https://scheduling.cxodex.com", tag: "" },
+    { name: "企业诊断数字人", desc: "几分钟看清经营健康度，定位最该先改的环节。", href: "https://diagnose.cxodex.com", tag: "免费" },
+    { name: "外贸抢单神器", desc: "竞品信号法开拓国际市场：AI 生成目标客户库、英文冷邮件序列与 30 天跟进看板，短周期抓订单。", href: "https://bd.cxodex.com", tag: "新", demo: true },
+    { name: "AI智能排产系统", desc: "AI 优化排产，把交期与产能约束算到最优。", href: "https://scheduling.cxodex.com", tag: "", demo: true },
     { name: "财务分析数字人", desc: "上传报表，自动出具盈利、现金与结构化分析。", href: "https://finance.cxodex.com", tag: "免费" },
     { name: "OEE 线上计算", desc: "设备综合效率在线测算，定位产能损失来源。", href: "https://oee.cxodex.com", tag: "免费" },
-    { name: "面试数字人", desc: "AI 数字面试官，在线自动筛查评估候选人，把老板解放出来。", href: "https://interview.cxodex.com", tag: "" },
-    { name: "合同在线审查数字人", desc: "上传或粘贴合同，AI 按四层审查法逐条挑风险、给修订建议。", href: "https://legal.cxodex.com", tag: "免费" }
+    { name: "AI快速面试", desc: "AI 数字面试官，在线自动筛查评估候选人，把老板解放出来。", href: "https://interview.cxodex.com", tag: "", demo: true },
+    { name: "合同审查数字人", desc: "上传或粘贴合同，AI 按四层审查法逐条挑风险、给修订建议。", href: "https://legal.cxodex.com", tag: "免费" },
+    { name: "人才测评数字人", desc: "大五人格×学习敏锐度：16 型管理风格 + 潜力分级，AI 生成个人发展报告。", href: "https://assess.cxodex.com", tag: "新" }
   ]
 };
 
