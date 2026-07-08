@@ -9,11 +9,17 @@ type Lang = "zh" | "en";
 type TR = (zh: string, en: string) => string;
 const KEYS = ["diagnose", "bd", "scheduling", "finance", "oee", "interview", "legal", "assess"] as const;
 const HUES = [210, 265, 180, 150, 120, 290, 230, 45];
+// 这三个工具用真实录制的 MP4 演示（其余用内置 3D 卡通讲解）。视频托管在 nginx /videos/。
+const VIDEOS: Record<string, string> = {
+  bd: "/videos/bd.mp4",
+  scheduling: "/videos/scheduling.mp4",
+  interview: "/videos/interview.mp4",
+};
 
 const CHROME = {
-  zh: { demo: "3D 卡通演示 · 18 秒", locked: "🔒 登录后免费使用", open: "进入工具 →", walk: "· 使用页面 3D 讲解",
+  zh: { demo: "3D 卡通演示 · 18 秒", video: "▶ 视频演示", videoTitle: "视频演示", locked: "🔒 登录后免费使用", open: "进入工具 →", walk: "· 使用页面 3D 讲解",
     logged: "🔒 已登录 · 免费版", step: (n: number) => "第 " + n + " 步", endLocked: "🔒 登录后免费使用", endCta: "进入工具 · 免费注册", replay: "↻ 重播" },
-  en: { demo: "3D demo · 18s", locked: "🔒 Free after login", open: "Open tool →", walk: "· 3D walkthrough",
+  en: { demo: "3D demo · 18s", video: "▶ Video demo", videoTitle: "Video demo", locked: "🔒 Free after login", open: "Open tool →", walk: "· 3D walkthrough",
     logged: "🔒 Logged in · Free", step: (n: number) => "Step " + n, endLocked: "🔒 Free after login", endCta: "Open tool · Register free", replay: "↻ Replay" },
 };
 
@@ -166,6 +172,7 @@ export function ToolsGrid({ items, lang = "zh" }: { items: ToolItem[]; lang?: La
   const ch = CHROME[lang];
   const tr: TR = (zh, en) => (lang === "en" ? en : zh);
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const [video, setVideo] = useState<{ src: string; title: string } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const capRef = useRef<HTMLSpanElement>(null);
   const fillRef = useRef<HTMLElement>(null);
@@ -262,16 +269,16 @@ export function ToolsGrid({ items, lang = "zh" }: { items: ToolItem[]; lang?: La
                 <p className="mt-2 min-h-[66px] text-sm leading-6 text-neutral-600">{tool.desc}</p>
               </div>
               <button
-                onClick={() => setOpenKey(key)}
+                onClick={() => VIDEOS[key] ? setVideo({ src: VIDEOS[key], title: tool.name }) : setOpenKey(key)}
                 className="relative mx-5 mt-3 block aspect-video overflow-hidden rounded-md text-left"
                 style={{ background: `repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 26px), repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 26px), linear-gradient(135deg, hsl(${HUES[i] ?? 210} 45% 16%), hsl(${(HUES[i] ?? 210) + 50} 55% 30%))` }}
-                aria-label={`${tool.name} 3D`}
-                data-umami-event="tool-3d-demo" data-umami-event-tool={key}
+                aria-label={`${tool.name} ${VIDEOS[key] ? "video" : "3D"}`}
+                data-umami-event={VIDEOS[key] ? "tool-video-demo" : "tool-3d-demo"} data-umami-event-tool={key}
               >
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 pl-1 text-base text-neutral-900 shadow-lg transition group-hover:scale-110">▶</span>
                 </span>
-                <span className="absolute bottom-2 left-3 text-xs tracking-wider text-sky-100/90">{ch.demo}</span>
+                <span className="absolute bottom-2 left-3 text-xs tracking-wider text-sky-100/90">{VIDEOS[key] ? ch.video : ch.demo}</span>
               </button>
               <div className="mt-auto flex items-center justify-between px-5 pb-5 pt-4">
                 <span className="text-xs text-neutral-400">{ch.locked}</span>
@@ -306,6 +313,18 @@ export function ToolsGrid({ items, lang = "zh" }: { items: ToolItem[]; lang?: La
                 <span ref={timeRef} className="min-w-[80px] text-right text-xs tabular-nums text-neutral-300">0:00 / 0:18</span>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {video && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" onClick={(e) => { if (e.target === e.currentTarget) setVideo(null); }}>
+          <div className="w-full max-w-4xl">
+            <div className="mb-2 flex items-center justify-between">
+              <p className="text-base font-bold text-white">{video.title} {ch.videoTitle}</p>
+              <button onClick={() => setVideo(null)} className="text-2xl leading-none text-neutral-400 hover:text-white">×</button>
+            </div>
+            <video src={video.src} controls autoPlay playsInline className="w-full rounded-lg bg-black" style={{ maxHeight: "78vh" }} />
           </div>
         </div>
       )}
