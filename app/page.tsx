@@ -55,7 +55,6 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap gap-3.5">
             <a href="/contact" className="rounded bg-[var(--gold)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90" data-umami-event="hero-booking">预约一次陪跑沟通</a>
             <a href="#theater" className="rounded border border-white/50 px-6 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold-soft)] hover:text-[var(--gold-soft)]">▶ 观看 3D 业务介绍</a>
-            <a href={tools.portalUrl} target="_blank" rel="noopener noreferrer" className="rounded border border-transparent px-4 py-3 text-sm font-semibold text-[var(--gold-soft)] hover:opacity-80" data-umami-event="hero-register">登录 / 免费注册 →</a>
           </div>
         </div>
       </section>

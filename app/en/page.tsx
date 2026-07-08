@@ -65,7 +65,6 @@ export default function HomePageEn() {
           <div className="mt-8 flex flex-wrap gap-3.5">
             <a href="/en/contact" className="rounded bg-[var(--gold)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90" data-umami-event="hero-booking">Book a conversation</a>
             <a href="#theater" className="rounded border border-white/50 px-6 py-3 text-sm font-semibold text-white transition hover:border-[var(--gold-soft)] hover:text-[var(--gold-soft)]">▶ Watch the 3D intro</a>
-            <a href={enTools.portalUrl} target="_blank" rel="noopener noreferrer" className="rounded border border-transparent px-4 py-3 text-sm font-semibold text-[var(--gold-soft)] hover:opacity-80" data-umami-event="hero-register">Log in / Register →</a>
           </div>
         </div>
       </section>

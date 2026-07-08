@@ -1,5 +1,5 @@
 /* CXODEX PWA service worker */
-const VERSION = "cxodex-v16";
+const VERSION = "cxodex-v17";
 const CORE = [
   "/",
   "/about",

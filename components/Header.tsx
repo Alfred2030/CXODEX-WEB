@@ -8,10 +8,9 @@ import { navigation, site, diagnoseUrl } from "../content/site";
 import { enNavigation } from "../content/en";
 
 const T = {
-  zh: { back: "← 返回首页", backShort: "← 返回", diagnose: "开始企业诊断", register: "登录 / 免费注册", menu: "菜单", other: "EN" },
-  en: { back: "← Home", backShort: "← Home", diagnose: "Start diagnosis", register: "Log in / Register", menu: "Menu", other: "中文" }
+  zh: { back: "← 返回首页", backShort: "← 返回", diagnose: "开始企业诊断", menu: "菜单", other: "EN" },
+  en: { back: "← Home", backShort: "← Home", diagnose: "Start diagnosis", menu: "Menu", other: "中文" }
 };
-const PORTAL = "https://app.cxodex.com";
 
 function setLangPref(lang: string) {
   try { localStorage.setItem("cxo_lang", lang); } catch { /* ignore */ }
@@ -54,13 +53,9 @@ export function Header() {
         <div className="hidden items-center gap-2.5 lg:flex">
           <Link href={counterpart} onClick={() => setLangPref(locale === "en" ? "zh" : "en")} className="border border-neutral-300 px-2.5 py-2 text-[0.8rem] font-semibold text-neutral-600 transition hover:border-[var(--gold)] hover:text-[var(--gold)]" data-umami-event="lang-switch">{t.other}</Link>
           <a href={diagnoseUrl} target="_blank" rel="noopener noreferrer" className="button-light min-h-0 px-3.5 py-2 text-[0.8rem]" data-umami-event="header-diagnose">{t.diagnose}</a>
-          <a href={PORTAL} target="_blank" rel="noopener noreferrer" className="button-gold min-h-0 px-3.5 py-2 text-[0.8rem]" data-umami-event="header-register">{t.register}</a>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
           <Link href={counterpart} onClick={() => setLangPref(locale === "en" ? "zh" : "en")} className="border border-neutral-300 px-2 py-2 text-xs font-semibold text-neutral-600" data-umami-event="lang-switch-mobile">{t.other}</Link>
-          <a href={PORTAL} target="_blank" rel="noopener noreferrer" className="button-gold min-h-0 px-3 py-2 text-xs" data-umami-event="header-register-mobile">
-            {t.register}
-          </a>
           <details ref={menuRef} className="group relative">
             <summary className="flex h-10 cursor-pointer list-none items-center gap-2 border border-neutral-400 px-3" aria-label="menu">
               <span className="flex flex-col gap-1">
@@ -78,9 +73,6 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-              </div>
-              <div className="mt-4 border-t border-neutral-200 pt-4">
-                <a href={PORTAL} target="_blank" rel="noopener noreferrer" className="button-gold w-full">{t.register}</a>
               </div>
             </div>
           </details>
