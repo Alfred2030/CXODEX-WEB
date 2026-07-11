@@ -123,14 +123,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== CXODEX 自动化工具列表（德勤式卡片 + 3D 使用讲解） ===== */}
+      {/* ===== CXODEX 实战数字人（德勤式卡片 + 3D 使用讲解） ===== */}
       <section className="section !pt-0">
         <div className="section-inner !pt-4">
           <div className="mb-3 flex items-end justify-between gap-4">
-            <p className="!mb-0 font-sans text-xl font-bold tracking-tight text-neutral-950 sm:text-2xl">CXODEX 自动化工具列表</p>
+            <p className="!mb-0 font-sans text-xl font-bold tracking-tight text-[var(--gold)] sm:text-2xl">CXODEX 实战数字人</p>
             <a href={tools.portalUrl} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm font-semibold text-[var(--gold)] hover:opacity-80">应用中心 →</a>
           </div>
-          <p className="mb-4 max-w-3xl text-sm leading-6 text-neutral-500">把陪跑中反复用到的经营动作，沉淀成可自助使用的在线工具——随时可用，多数免费。点卡片上的 ▶ 看 18 秒 3D 使用讲解。</p>
+          <p className="mb-4 max-w-none text-sm leading-6 text-neutral-500 lg:whitespace-nowrap">把陪跑中反复用到的经营动作，沉淀成可自助使用的在线工具——随时可用，多数免费。点卡片上的 ▶ 看 18 秒 3D 使用讲解。</p>
           <p className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#ead9b8] bg-white px-4 py-1.5 text-[13px] text-[var(--gold)]">🔒 免费工具需登录后使用 · 邮箱验证码一键开通，无需记密码</p>
           <ToolsGrid items={tools.items} />
           <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
