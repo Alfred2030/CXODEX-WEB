@@ -109,7 +109,7 @@ export default function HomePage() {
               <figcaption className="mt-1.5 text-sm text-neutral-500">—— 富耐克 李董事长（2025 年净利润 +140%，OEE 提升 20%）</figcaption>
             </figure>
             <div className="mt-6 grid max-w-2xl grid-cols-2 gap-3.5">
-              {[["/img/wang-teaching.jpg", "实录 · 经营干部课堂（丹纳赫管理专题）"], ["/img/factory2.jpg", "GEMBA · 下到车间现场"]].map(([src, cap]) => (
+              {[["/img/management-training.png", "实录 · 经营干部课堂（丹纳赫管理专题）"], ["/img/gemba-site.png", "GEMBA · 下到车间现场"]].map(([src, cap]) => (
                 <figure key={src} className="relative m-0 aspect-video overflow-hidden rounded-lg" style={{ boxShadow: "inset 0 0 0 1px rgba(212,166,63,.35)" }}>
                   <img src={src} alt={cap} loading="lazy" className="h-full w-full object-cover" style={{ filter: "saturate(.8) brightness(.86)" }} />
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-3 py-2 text-[11px] tracking-wider text-amber-100">{cap}</figcaption>
